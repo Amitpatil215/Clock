@@ -61,10 +61,10 @@ class ClockPainter extends CustomPainter {
 
     for (double i = 0; i < 360; i += 12) {
       var x1 = centerX + outerDashCircleRadius * cos(i * pi / 180);
-      var y1 = centerX + outerDashCircleRadius * sin(i * pi / 180);
+      var y1 = centerY + outerDashCircleRadius * sin(i * pi / 180);
 
       var x2 = centerX + innerDashCircleRadius * cos(i * pi / 180);
-      var y2 = centerX + innerDashCircleRadius * sin(i * pi / 180);
+      var y2 = centerY + innerDashCircleRadius * sin(i * pi / 180);
 
       canvas.drawLine(Offset(x1, y1), Offset(x2, y2), dashBrush);
     }
@@ -79,14 +79,14 @@ class ClockPainter extends CustomPainter {
           .createShader(Rect.fromCircle(center: center, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 16;
+      ..strokeWidth = 12;
 
     var hourHandBrush = Paint()
       ..shader = RadialGradient(colors: [Color(0xFFEA74AB), Color(0xFFC279FB)])
           .createShader(Rect.fromCircle(center: center, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 16;
+      ..strokeWidth = 15;
 
     canvas.drawCircle(center, radius - 40, fillBrush);
     canvas.drawCircle(center, radius - 40, outlineBrush);
